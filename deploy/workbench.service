@@ -1,0 +1,15 @@
+[Unit]
+Description=Frontier AI Workbench API
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/frontier-ai-workbench
+EnvironmentFile=-/opt/frontier-ai-workbench/backend/.env
+ExecStart=/opt/frontier-ai-workbench/.venv/bin/uvicorn app.main:app --app-dir /opt/frontier-ai-workbench/backend --host 127.0.0.1 --port 8000
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Run due Frontier AI Workbench daily tasks
+After=workbench.service
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/opt/frontier-ai-workbench
+EnvironmentFile=-/opt/frontier-ai-workbench/backend/.env
+ExecStart=/opt/frontier-ai-workbench/.venv/bin/python backend/run_daily.py

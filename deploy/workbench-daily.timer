@@ -1,0 +1,10 @@
+[Unit]
+Description=Check Frontier AI Workbench scheduled tasks every minute
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=1min
+Unit=workbench-daily.service
+
+[Install]
+WantedBy=timers.target
